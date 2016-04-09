@@ -110,5 +110,12 @@ namespace Tests
 
             Console.WriteLine(gameState);
         }
+
+        [Test]
+        public void PasteRank()
+        {
+            var card = new Card() { Rank = "J", Suit = "diamonds" };
+            Assert.AreEqual(9, card.Rank_int);
+        }
     }
 }
