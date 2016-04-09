@@ -1,5 +1,7 @@
 ﻿using System;
+using System.IO;
 using ClassLibrary;
+using Newtonsoft.Json.Linq;
 using NUnit.Framework;
 
 namespace Tests
@@ -10,7 +12,9 @@ namespace Tests
         [Test]
         public void RunBetR()
         {
-            Console.WriteLine(PokerPlayer.BetRequest(null));
+            var str = File.ReadAllText("D:\\data1.txt");
+            var j = JObject.Parse(str);
+            Console.WriteLine(PokerPlayer.BetRequest(j));
         }
     }
 }

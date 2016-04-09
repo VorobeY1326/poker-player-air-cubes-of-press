@@ -35,7 +35,7 @@ namespace ClassLibrary
 	                return performer.AllIn(state);
 	            }
 
-	            var toAdd = performer.Raise(state, me.Stack/2);
+	            var toAdd = performer.Raise(state, me, me.Stack/2);
 	            Console.WriteLine("Raise - adding {0}", toAdd);
 	            return toAdd;
 	        }
@@ -46,10 +46,10 @@ namespace ClassLibrary
                 return performer.AllIn(state);
             }
 
-	        var needToCall = performer.Call(state);
+	        var needToCall = performer.Call(state, me);
 
 	        var letsCall = needToCall < 0.1*me.Stack;
-	        var toAdd2 = letsCall ? performer.Call(state) : performer.Check(state);
+	        var toAdd2 = letsCall ? performer.Call(state, me) : performer.Check(state);
 	        Console.WriteLine("Letscall={0} adding {1}", letsCall, toAdd2);
 	        return toAdd2;
 	    }

@@ -4,9 +4,9 @@ namespace ClassLibrary
 {
     public class ActionPerformer
     {
-        public int Call(GameState state)
+        public int Call(GameState state, Player me)
         {
-            return state.MinimumRaise;
+            return state.CurrentBuyIn - me.Bet;
         }
 
         public int Check(GameState state)
@@ -19,9 +19,9 @@ namespace ClassLibrary
             return 0;
         }
 
-        public int Raise(GameState state, int amount)
+        public int Raise(GameState state, Player me, int amount)
         {
-            return Call(state) + amount;
+            return Call(state, me) + amount;
         }
 
         public int AllIn(GameState state)
