@@ -6,7 +6,7 @@ namespace ClassLibrary
 {
 	public static class PokerPlayer
 	{
-		public static readonly string VERSION = "Air v1.0.2";
+		public static readonly string VERSION = "Air v1.0.3l";
 
         private static PositionDesider desider = new PositionDesider();
         private static ActionPerformer performer = new ActionPerformer();
@@ -16,7 +16,7 @@ namespace ClassLibrary
 		    var state = gameState.ToObject<GameState>();
 		    var me = state.Players[state.InAction];
 
-		    Console.WriteLine("Step {0}-{1}, money {2}", state.Round, state.BetIndex, me.Stack);
+		    Console.WriteLine("{3} Step {0}-{1}, money {2}", state.Round, state.BetIndex, me.Stack, DateTime.Now);
 
 		    var positionGoodness = desider.GetPositionGoodness(me, state);
 		    Console.WriteLine("Goodness {0}", positionGoodness);
