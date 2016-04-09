@@ -6,7 +6,7 @@ namespace ClassLibrary
     public class PositionDesider
     {
         //returns from 0 to 1
-        public double GetPositionGoodness(Player me, GameState state)
+        public double GetPositionGoodness_Pair(Player me, GameState state)
         {
             var cardA = me.HoleCards[0];
             var cardB = me.HoleCards[1];
