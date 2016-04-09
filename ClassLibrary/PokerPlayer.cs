@@ -30,7 +30,7 @@ namespace ClassLibrary
 		    {
 		        Console.WriteLine("SHITT " + ex.ToString());
 		        Console.WriteLine("STATE " + JsonConvert.SerializeObject(state));
-		        return performer.Check(state);
+		        return performer.AllIn(state);
 		    }
 		}
 
