@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using ClassLibrary.Models;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -61,6 +62,11 @@ namespace ClassLibrary
 
         private static int RunDecisionTrees2(Player me, GameState state)
         {
+            if (state.Players.Count(e => e.Status != PlayerStatus.Out) == 4 && me.HoleCards.Any(e => e.Rank_int > 8))
+            {
+                return performer.AllIn(state);
+            }
+
             var positionGoodness = desider.GetPositionGoodness(me, state);
             Console.WriteLine("Goodness {0}", positionGoodness);
             if (positionGoodness > 0.5 && state.Round == 0)
@@ -78,6 +84,7 @@ namespace ClassLibrary
             var letsCall = needToCall < 0.1 * me.Stack;
             var toAdd2 = letsCall ? performer.Call(state, me) : performer.Check(state);
             Console.WriteLine("Letscall={0} adding {1}", letsCall, toAdd2);
+
             return toAdd2;
         }
 
