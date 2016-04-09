@@ -1,8 +1,8 @@
 ﻿using System;
-using Nancy.Simple.Models;
+using ClassLibrary.Models;
 using Newtonsoft.Json.Linq;
 
-namespace Nancy.Simple
+namespace ClassLibrary
 {
 	public static class PokerPlayer
 	{

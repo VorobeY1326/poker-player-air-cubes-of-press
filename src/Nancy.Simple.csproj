@@ -71,15 +71,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ActionPerformer.cs" />
     <Compile Include="MainModule.cs" />
     <Compile Include="App.cs" />
-    <Compile Include="Models\Card.cs" />
-    <Compile Include="Models\GameState.cs" />
-    <Compile Include="Models\Player.cs" />
-    <Compile Include="Models\PlayerStatus.cs" />
-    <Compile Include="PokerPlayer.cs" />
-    <Compile Include="PositionDesider.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config">
@@ -91,6 +84,12 @@
     <Content Include="Views\ok">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ClassLibrary\ClassLibrary.csproj">
+      <Project>{a2bf986d-5b58-4ff3-99ed-bf4c961ee608}</Project>
+      <Name>ClassLibrary</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -1,6 +1,6 @@
-﻿using Nancy.Simple.Models;
+﻿using ClassLibrary.Models;
 
-namespace Nancy.Simple
+namespace ClassLibrary
 {
     public class ActionPerformer
     {

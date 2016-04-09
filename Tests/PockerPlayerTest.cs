@@ -1,5 +1,5 @@
 ﻿using System;
-using Nancy.Simple;
+using ClassLibrary;
 using NUnit.Framework;
 
 namespace Tests

@@ -1,5 +1,5 @@
 ﻿using System;
-using Nancy.Simple.Models;
+using ClassLibrary.Models;
 using Newtonsoft.Json.Linq;
 using NUnit.Framework;
 

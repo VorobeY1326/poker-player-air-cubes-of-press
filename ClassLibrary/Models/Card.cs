@@ -1,4 +1,4 @@
-namespace Nancy.Simple.Models
+namespace ClassLibrary.Models
 {
     public class Card
     {

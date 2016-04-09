@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using Newtonsoft.Json;
 
-namespace Nancy.Simple.Models
+namespace ClassLibrary.Models
 {
     public class GameState
     {

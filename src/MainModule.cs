@@ -1,6 +1,7 @@
 using System;
 using Newtonsoft.Json.Linq;
 using System.Text;
+using ClassLibrary;
 
 namespace Nancy.Simple
 {

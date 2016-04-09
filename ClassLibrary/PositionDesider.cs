@@ -1,7 +1,7 @@
 ﻿using System.Linq;
-using Nancy.Simple.Models;
+using ClassLibrary.Models;
 
-namespace Nancy.Simple
+namespace ClassLibrary
 {
     public class PositionDesider
     {
