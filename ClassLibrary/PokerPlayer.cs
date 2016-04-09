@@ -29,7 +29,7 @@ namespace ClassLibrary
 	        Console.WriteLine("Goodness {0}", positionGoodness);
 	        if (positionGoodness > 0.5)
 	        {
-	            if (random.Next(7) == 1)
+	            if (random.Next(7) == 1 && me.HoleCards[0].Rank_int >= 9)
 	            {
 	                Console.WriteLine("ALLIN");
 	                return performer.AllIn(state);
@@ -39,12 +39,6 @@ namespace ClassLibrary
 	            Console.WriteLine("Raise - adding {0}", toAdd);
 	            return toAdd;
 	        }
-
-            if (random.Next(20) == 1)
-            {
-                Console.WriteLine("ALLIN");
-                return performer.AllIn(state);
-            }
 
 	        var needToCall = performer.Call(state, me);
 
