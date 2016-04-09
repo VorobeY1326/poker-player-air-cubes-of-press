@@ -1,5 +1,6 @@
 ﻿using System;
 using ClassLibrary.Models;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
 namespace ClassLibrary
@@ -28,6 +29,7 @@ namespace ClassLibrary
 		    catch (Exception ex)
 		    {
 		        Console.WriteLine("SHITT " + ex.ToString());
+		        Console.WriteLine("STATE " + JsonConvert.SerializeObject(state));
 		        return performer.Check(state);
 		    }
 		}
