@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.40629.0
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nancy.Simple", "src\Nancy.Simple.csproj", "{0B3EA40E-F7D8-4E14-A30F-1536F41B62D1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{C9375395-87B7-4BD4-9332-60D862BE27ED}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,14 @@ Global
 		{0B3EA40E-F7D8-4E14-A30F-1536F41B62D1}.Release|Any CPU.Build.0 = Release|x86
 		{0B3EA40E-F7D8-4E14-A30F-1536F41B62D1}.Release|Mixed Platforms.ActiveCfg = Release|x86
 		{0B3EA40E-F7D8-4E14-A30F-1536F41B62D1}.Release|Mixed Platforms.Build.0 = Release|x86
+		{C9375395-87B7-4BD4-9332-60D862BE27ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C9375395-87B7-4BD4-9332-60D862BE27ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C9375395-87B7-4BD4-9332-60D862BE27ED}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{C9375395-87B7-4BD4-9332-60D862BE27ED}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{C9375395-87B7-4BD4-9332-60D862BE27ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C9375395-87B7-4BD4-9332-60D862BE27ED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C9375395-87B7-4BD4-9332-60D862BE27ED}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{C9375395-87B7-4BD4-9332-60D862BE27ED}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
