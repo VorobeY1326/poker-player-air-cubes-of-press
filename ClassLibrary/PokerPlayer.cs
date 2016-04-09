@@ -12,6 +12,7 @@ namespace ClassLibrary
 
         private static PositionDesider desider = new PositionDesider();
         private static ActionPerformer performer = new ActionPerformer();
+        private static PokerHandsDetector detector = new PokerHandsDetector();
 
 		public static int BetRequest(JObject gameState)
 		{
@@ -20,7 +21,7 @@ namespace ClassLibrary
 
 		    Console.WriteLine("{3} Step {0}-{1}, money {2}", state.Round, state.BetIndex, me.Stack, DateTime.Now);
 
-		    return RunDecisionTrees(me, state);
+		    return RunDecisionTrees2(me, state);
 		}
 
 	    private static int RunDecisionTrees(Player me, GameState state)
@@ -48,7 +49,29 @@ namespace ClassLibrary
 	        return toAdd2;
 	    }
 
-	    public static void ShowDown(JObject gameState)
+        private static int RunDecisionTrees2(Player me, GameState state)
+        {
+            var positionGoodness = desider.GetPositionGoodness(me, state);
+            Console.WriteLine("Goodness {0}", positionGoodness);
+            if (positionGoodness > 0.5 && state.Round == 0)
+            {
+                return performer.Raise(state, me, me.Stack/2);
+            }
+
+            if (detector.Detect(state) >= PokerHands.ThreeOfAKind)
+            {
+                return performer.Raise(state, me, me.Stack/2);
+            }
+
+            var needToCall = performer.Call(state, me);
+
+            var letsCall = needToCall < 0.1 * me.Stack;
+            var toAdd2 = letsCall ? performer.Call(state, me) : performer.Check(state);
+            Console.WriteLine("Letscall={0} adding {1}", letsCall, toAdd2);
+            return toAdd2;
+        }
+
+        public static void ShowDown(JObject gameState)
 		{
 			//TODO: Use this method to showdown
 		}

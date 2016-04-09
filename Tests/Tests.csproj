@@ -49,6 +49,7 @@
   <ItemGroup>
     <Compile Include="Parsing.cs" />
     <Compile Include="PockerPlayerTest.cs" />
+    <Compile Include="PokerHandsDetectorTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
