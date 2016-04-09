@@ -6,7 +6,9 @@ namespace ClassLibrary
 {
 	public static class PokerPlayer
 	{
-		public static readonly string VERSION = "Air v1.0.3l";
+		public static readonly string VERSION = "Air v1.0.4r";
+
+        public static Random random = new Random();
 
         private static PositionDesider desider = new PositionDesider();
         private static ActionPerformer performer = new ActionPerformer();
@@ -27,10 +29,22 @@ namespace ClassLibrary
 	        Console.WriteLine("Goodness {0}", positionGoodness);
 	        if (positionGoodness > 0.5)
 	        {
+	            if (random.Next(7) == 1)
+	            {
+	                Console.WriteLine("ALLIN");
+	                return performer.AllIn(state);
+	            }
+
 	            var toAdd = performer.Raise(state, me.Stack/2);
 	            Console.WriteLine("Raise - adding {0}", toAdd);
 	            return toAdd;
 	        }
+
+            if (random.Next(20) == 1)
+            {
+                Console.WriteLine("ALLIN");
+                return performer.AllIn(state);
+            }
 
 	        var needToCall = performer.Call(state);
 
