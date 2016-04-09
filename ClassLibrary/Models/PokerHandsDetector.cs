@@ -15,6 +15,12 @@ namespace ClassLibrary.Models
 
         public PokerHands Detect(IList<Card> closedCards, IList<Card> openCards)
         {
+            var count = openCards.Count;
+            for (var i = 0; i < 5 - count; i++)
+            {
+                openCards.Add(null);
+            }
+
             return new[]
             {
                 new[] {closedCards[0], openCards[1], openCards[2], openCards[3], openCards[4]},
@@ -37,8 +43,8 @@ namespace ClassLibrary.Models
                 new[] {closedCards[0], closedCards[1], openCards[1], openCards[2], openCards[4]},
                 new[] {closedCards[0], closedCards[1], openCards[1], openCards[3], openCards[4]}
             }
-                .Select(e => e.Where(g => g != null).ToArray())
-                .Select(Detect)
+                .Select(e => e.Where(g => g != null).ToArray()).ToArray()
+                .Select(Detect).ToArray()
                 .OrderByDescending(e => e)
                 .FirstOrDefault();
         }
