@@ -21,14 +21,19 @@ namespace Tests
         [Test]
         public void TestCards()
         {
-            var spades2 = new Card { Rank = "2", Suit = "spades" };
-            var hearts2 = new Card { Rank = "2", Suit = "hearts" };
+            var spades2 = new Card { Rank = "2", Suit = "k" };
+            var hearts2 = new Card { Rank = "3", Suit = "b" };
+            var hearts21 = new Card { Rank = "3", Suit = "c" };
+            var hearts22 = new Card { Rank = "2", Suit = "p" };
+            var hearts23 = new Card { Rank = "3", Suit = "p" };
 
             var detector = new PokerHandsDetector();
 
-            var pokerHands = detector.Detect(new [] {spades2, hearts2}, new List<Card>());
+            var pokerHands = detector.Detect(new List<Card> {spades2, hearts2}, new List<Card> {hearts21, hearts22, hearts23});
 
-            Assert.AreEqual(PokerHands.OnePair, pokerHands);
+            var b = pokerHands >= PokerHands.ThreeOfAKind;
+
+            Assert.AreEqual(PokerHands.FullHouse, pokerHands);
         }
 
         private static IEnumerable<TestCaseData> TestData()

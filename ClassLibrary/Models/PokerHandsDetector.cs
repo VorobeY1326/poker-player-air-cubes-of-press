@@ -15,12 +15,6 @@ namespace ClassLibrary.Models
 
         public PokerHands Detect(IList<Card> closedCards, IList<Card> openCards)
         {
-            var count = openCards.Count;
-            for (var i = 0; i < 5 - count; i++)
-            {
-                openCards.Add(null);
-            }
-
             return new[]
             {
                 new[] {closedCards[0], openCards[1], openCards[2], openCards[3], openCards[4]},
@@ -70,7 +64,7 @@ namespace ClassLibrary.Models
                 return PokerHands.FourOfAKind;
             }
 
-            if (countsArray[0] == 3 && countsArray[1] == 2)
+            if (countsArray.Length > 1 && countsArray[0] == 3 && countsArray[1] == 2)
             {
                 return PokerHands.FullHouse;
             }
