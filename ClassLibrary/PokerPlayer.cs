@@ -16,12 +16,20 @@ namespace ClassLibrary
 
 		public static int BetRequest(JObject gameState)
 		{
-		    var state = gameState.ToObject<GameState>();
-		    var me = state.Players[state.InAction];
+            var state = gameState.ToObject<GameState>();
+		    try
+		    {
+		        var me = state.Players[state.InAction];
 
-		    Console.WriteLine("{3} Step {0}-{1}, money {2}", state.Round, state.BetIndex, me.Stack, DateTime.Now);
+		        Console.WriteLine("{3} Step {0}-{1}, money {2}", state.Round, state.BetIndex, me.Stack, DateTime.Now);
 
-		    return RunDecisionTrees2(me, state);
+		        return RunDecisionTrees2(me, state);
+		    }
+		    catch (Exception ex)
+		    {
+		        Console.WriteLine("SHITT " + ex.ToString());
+		        return performer.Check(state);
+		    }
 		}
 
 	    private static int RunDecisionTrees(Player me, GameState state)
